@@ -1,4 +1,5 @@
 #include <iostream>
+#include<cmath>
 using namespace std;
 
 void shearStress(double SF, int width, int depth, int y);
@@ -41,6 +42,9 @@ int main() {
                 if (typeofload) {  // Point Load
                     cout << "Enter load (W) in kN: ";
                     cin >> load;
+                    cout << "Enter Span of Beam (L) in m: ";
+                    cin >> length;
+                    spanGiven=length;
                     cout << "Is the load at center? Enter 1 for yes, 0 for no: ";
                     cin >> center;
 
@@ -61,6 +65,7 @@ int main() {
                     cin >> all;
 
                     if (all) {
+                        length=spanGiven;
                         bendingMoment = (load * spanGiven * spanGiven) / 8;  // Max bending moment at center for full UDL
                     }
                     else {
@@ -135,7 +140,7 @@ int main() {
                 cin >> width;
                 cout << "Enter depth of rectangle: ";
                 cin >> depth;
-                MoI = (width * (depth * depth * depth)) / 12.0;}
+                MoI = (width * pow(depth,3)) / 12.0;}
       } 
         
       
