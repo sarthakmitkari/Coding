@@ -18,10 +18,7 @@ int main() {
     cout<<"Enter 1 or 2: ";
     cin>>stressSelected;
     if (stressSelected==2){
-        cout<<"Bending Stress Calculator is under development."<<endl;
         cout << "What is given?" << endl;
-       
-
         cout << "1. Bending Moment?" << endl;
         cout << "Enter 1:Yes or 0:No : "<<endl;
         cin >> BMGiven;
@@ -171,6 +168,7 @@ int main() {
         }
     
     } else if (stressSelected==1){
+
         cout<<"You have selected Shear Stress calculation."<<endl;
         cout << "Shear Stress Calculator" << endl;
         cout << "---------------------------------" << endl;
@@ -310,7 +308,7 @@ void shearStress(double SF, int width, int depth, int y) {
     double As = width * ((depth / 2.0) - y);
 
     // Calculate moment of inertia (I)
-    double I = (width * (depth * depth * depth)) / 12.0;
+    double I = (width * pow(depth,3)) / 12.0;
 
     // Calculate Ybar
     double Ybar = ((depth / 2.0 - y) / 2.0)+y;
